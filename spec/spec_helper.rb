@@ -14,12 +14,12 @@ require 'hooks'
 
 include InitUtils
 
-ENV['SERVER'] ||= 'webcollaboration.cti.ru'
+ENV['SERVER'] ||= '172.16.34.56'
 ENV['USE_TURNIP'] ||= 'false'
 ENV['CHROME_DRIVER_VERSION'] ||= '2.28'
 
 puts '============================================='
-puts 'Welcome web-collaboration-acceptance'
+puts 'Welcome ttk-acceptance'
 puts "Using server: #{ENV['SERVER']}"
 puts "Chrome driver version: #{ENV['CHROME_DRIVER_VERSION']}"
 puts `google-chrome-stable --version`

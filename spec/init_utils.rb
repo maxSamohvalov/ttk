@@ -25,7 +25,7 @@ module InitUtils
      Capybara.register_driver :chrome do |app|
        Capybara::Selenium::Driver.new(app,
                                       browser: :chrome,
-                                      service_log_path: '/tmp/chrome_driver-wc.log',
+                                      service_log_path: '/tmp/chrome_driver-ttk.log',
                                       desired_capabilities: {
                                         :browser_name => 'chrome',
                                         :javascript_enabled => true,

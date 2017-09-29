@@ -1,0 +1,42 @@
+before_script:
+  - export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib64/qt5/bin:$PATH
+  - export QMAKE=/usr/lib64/qt5/bin/qmake
+  - export DBUS_SESSION_BUS_ADDRESS=/dev/null
+  - export CHROME_DRIVER_VERSION=2.27
+  - source ~/.bash_profile
+  - rvm use 2.3.3@acceptance --create
+  - date
+  - pwd
+  - google-chrome-stable -version
+  - ruby -v
+  - which ruby
+  - gem -v
+  #- if  [ `gem query -i -n bundler` == false ] ; then gem install bundler; fi
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install --quiet
+  # - bundle update
+  #- QMAKE=/usr/lib64/qt5/bin/qmake gem install capybara-webkit
+
+all_tests:
+  script:
+    - if  [ -z "${HTML_REPORTS}" ]; then bundle install --quiet; fi
+    - if  [ -z "${HTML_REPORTS}" ]; then bundle exec rspec --format documentation; fi
+    - if  [ -z "${HTML_REPORTS}" ]; then xvfb-run -d  --server-args="-screen 0 1920x1080x24" -e /tmp/wc-acceptance-xvfb.log bundle exec rake all_tests; fi
+  tags:
+    - chrome
+
+long_tests:
+  script:
+    - if  [ -z "${HTML_REPORTS}" ]; then bundle install --quiet; fi
+    - if  [ -z "${HTML_REPORTS}" ]; then bundle exec rspec --format documentation; fi
+    - if  [ -z "${HTML_REPORTS}" ]; then xvfb-run -d  --server-args="-screen 0 1920x1080x24" -e /tmp/wc-acceptance-xvfb.log bundle exec rake long_tests; fi
+  tags:
+    - chrome
+
+test_with_html_report:
+  script:
+    - if  [ -n "${HTML_REPORTS}" ] && [ -n "${BRANCH_NAME}" ] ; then export BRANCH=${BRANCH_NAME}; fi
+    - if  [ -n "${HTML_REPORTS}" ]; then bundle install --quiet; fi
+    - if  [ -n "${HTML_REPORTS}" ]; then xvfb-run -d  --server-args="-screen 0 1920x1080x24" -e /tmp/wc-acceptance-xvfb.log bundle exec rake test_with_html_report; fi
+  tags:
+    - chrome

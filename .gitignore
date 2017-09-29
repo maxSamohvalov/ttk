@@ -1,0 +1,14 @@
+/node_modules/
+/.idea/
+/log
+/tmp
+/coverage/
+/screenshots/
+.rvmrc
+*.swp
+.bundle
+/vendor/bundle/
+zeus.json
+custom_plan.rb
+.directory
+.\#*

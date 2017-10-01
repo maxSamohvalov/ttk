@@ -40,7 +40,7 @@ module InitUtils
   end
 
   def init_formatters
-    TurnipFormatter.title = 'Web-collaboration acceptance tests'
+    TurnipFormatter.title = 'TTK acceptance tests'
 
     Gnawrnip.configure do |c|
       c.make_animation = true

@@ -56,21 +56,3 @@ task :test_with_html_report do
         end
     end
 end
-
-# task :test_with_report do
-#   require 'rspec/core/rake_task'
-#   ENV['RAILS_ENV'] = 'test'
-#   ENV['USE_TURNIP'] = 'true'
-#   report_dir = '/tmp/acceptance/ttk-acceptance'
-#   branch_name = `git rev-parse --abbrev-ref HEAD`.strip!
-#   target_dir = "#{report_dir}/#{branch_name}"
-#
-#   `rm -rf target_dir`
-#   `mkdir target_dir`
-#
-#   RSpec::Core::RakeTask.new(:turnip) do |t|
-#     t.rspec_opts = "--tag ~@wip  -r turnip_formatter --format RSpecTurnipFormatter  --out #{target_dir}/report.html"
-#     # t.pattern = 'spec/acceptance/super_user/no_failed_jobs.feature' #feature here
-#   end
-#   Rake::Task['turnip'].execute
-# end

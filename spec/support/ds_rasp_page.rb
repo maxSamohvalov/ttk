@@ -1,27 +1,40 @@
 class DSRasp_page < SitePrism::Page
   set_url ""
 
+  element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
-  element :but_find, 'button.margin-bottom.k-button.k-primary', text: "Поиск"
-  element :train_num, :xpath, "//div[@id='search-bar-form']/form/label/input"
-  element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
+  element :but_find, 'button.k-button.k-primary', text: "Поиск"
+  element :train_num, "input[name='trainNumber']"
+#  element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
   element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :link_to_shedule, 'a', text: "Расписание поездов"
-  elements :all_table, "td"
+  element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
 
 end
 
 module DSRasp_module
 
+  def train_to_select(num)
+    @dsrasp = @dsrasp = DSRasp_page.new
+    @dsrasp.train_num.send_keys num
+  end
+
+  def from_select(st_select)
+    @dsrasp = DSRasp_page.new
+      @dsrasp.stantion_ot.send_keys st_select
+      sleep 1
+      @dsrasp.stantion_ot.send_keys :enter
+  end
+
   def stantion_from_select(st_select)
     @dsrasp = DSRasp_page.new
-    @dsrasp.stantion_from.send_keys st_select
-    sleep 1
-    @dsrasp.stantion_from.send_keys :enter
+      @dsrasp.stantion_from.send_keys st_select
+      sleep 1
+      @dsrasp.stantion_from.send_keys :enter
   end
 
   def stantion_to_select(st_select)

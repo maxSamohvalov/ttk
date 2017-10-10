@@ -5,7 +5,7 @@ class DSRasp_page < SitePrism::Page
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
   element :but_find, 'button.k-button.k-primary', text: "Поиск"
-  element :train_num, :xpath, "//input[@name='trainNumber']"
+  element :train_num, "input[name='trainNumber']"
 #  element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
   element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
@@ -21,8 +21,6 @@ module DSRasp_module
   def train_to_select(num)
     @dsrasp = @dsrasp = DSRasp_page.new
     @dsrasp.train_num.send_keys num
-    sleep 1
-    @dsrasp.train_num.send_keys :enter
   end
 
   def from_select(st_select)

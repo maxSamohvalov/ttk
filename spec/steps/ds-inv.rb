@@ -12,9 +12,8 @@ include DSRasp_module
     page_check(curr_page)
   end
 
-  step 'вводит номер поезда' do
-    @dsrasp = DSRasp_page.new
-    @dsrasp.train_num.set('002А')
+  step 'вводит номер поезда :num' do |num|
+    train_to_select(num)
   end
 
   step 'нажимает кнопку Поиск' do

@@ -62,6 +62,8 @@ module CTI_panel_module
           @page.popup_shedule.click
         when "ДС – Наличие мест"
           @page.popup_places.click
+        when "ДС – Маршруты"
+          @page.popup_way.click
       end
     end
   end

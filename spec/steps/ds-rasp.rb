@@ -25,8 +25,12 @@ include CTI_panel_module
     @dsrasp.find_inv.click
   end
 
-  step 'получаем расписание "Москва - Санкт-Петербург"' do
-    #binding.pry
+  step 'получаем расписание "Орел - Белгород"' do
+    @dsrasp = DSRasp_page.new
+    puts "Таблица с данными отобразилась".green if expect(@dsrasp.wait_for_table_rows)
+    puts "В таблице больше 4 результатов".green if expect(@dsrasp.table_rows.size > 4)
+    puts "Нашлись поезда #{@dsrasp.table_elem_moscow_belgorod.text}".green if expect(@dsrasp).to have_table_elem_moscow_belgorod
+    date_verifier
   end
 
 end

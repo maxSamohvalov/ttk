@@ -6,10 +6,12 @@ class DSRasp_page < SitePrism::Page
   element :but_find, 'button.margin-bottom.k-button.k-primary', text: "Поиск"
   element :train_num, :xpath, "//div[@id='search-bar-form']/form/label/input"
   element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
-  element :table, 'div[id="disabled-table-table"]'
-  element :table_text_from, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[4]"
-  element :table_text_to, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[5]"
-
+  element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
+  element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
+  elements :table_rows, 'tr[data-kendo-grid-item-index]'
+  element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
+  element :link_to_shedule, 'a', text: "Расписание поездов"
+  elements :all_table, "td"
 
 end
 
@@ -28,5 +30,16 @@ module DSRasp_module
     sleep 1
     @dsrasp.stantion_to.send_keys :enter
   end
+
+  def date_verifier(time_to_verify = "now")
+    if time_to_verify == "now"
+      t = Time.now
+      table_date_format = t.strftime("%d/%m/%Y")
+      puts "Поезда показаны в текущую дату".green if find(:xpath, "//td[contains(., '#{table_date_format}')]")
+    else
+      puts "Поезда показаны на '#{time_to_verify}'".green if find(:xpath, "//td[contains(., '#{time_to_verify}')]")
+    end
+  end
+
 
 end

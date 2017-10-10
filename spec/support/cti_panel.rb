@@ -3,6 +3,7 @@ class CTI_panel < SitePrism::Page
 
   element :first_tab_name, "#k-tabstrip-tab-0"
   element :cat_selector, '.dropdownlist.k-widget.k-dropdown.k-header'
+
 #элементы справочника
   element :popup_shedule, :xpath, "//kendo-popup//li[text() = 'ДС – Расписание']"
   element :popup_places, :xpath, "//kendo-popup//li[text() = 'ДС – Наличие мест']"
@@ -55,6 +56,8 @@ module CTI_panel_module
     if @page.first_tab_name.text != page_name_input
       @page.cat_selector.click
       case page_name_input
+        when "ДС – Поезда с вагонами для инв"
+          @page.popup_trains_with_inv.click
         when "ДС – Расписание"
           @page.popup_shedule.click
         when "ДС – Наличие мест"

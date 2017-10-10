@@ -22,11 +22,11 @@ include CTI_panel_module
 
   step 'нажимает кнопку Поиск' do
     @dsrasp = DSRasp_page.new
-    @dsrasp.but_find.click
+    @dsrasp.find_inv.click
   end
 
   step 'получаем расписание "Москва - Санкт-Петербург"' do
-    binding.pry
+    #binding.pry
   end
 
 end

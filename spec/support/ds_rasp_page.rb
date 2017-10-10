@@ -4,6 +4,10 @@ class DSRasp_page < SitePrism::Page
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
   element :but_find, 'button.margin-bottom.k-button.k-primary', text: "Поиск"
+  element :train_num, :xpath, "//div[@id='search-bar-form']/form/label/input"
+  element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
+  element :table_text_from, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[4]"
+  element :table_text_to, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[5]"
 
 
 end

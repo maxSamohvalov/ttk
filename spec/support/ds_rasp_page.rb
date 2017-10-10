@@ -6,6 +6,7 @@ class DSRasp_page < SitePrism::Page
   element :but_find, 'button.margin-bottom.k-button.k-primary', text: "Поиск"
   element :train_num, :xpath, "//div[@id='search-bar-form']/form/label/input"
   element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
+  element :table, 'div[id="disabled-table-table"]'
   element :table_text_from, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[4]"
   element :table_text_to, :xpath, "//*[@id='disabled-table-table']/kendo-grid/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[5]"
 

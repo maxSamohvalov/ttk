@@ -24,7 +24,7 @@ include DSRasp_module
 
   step 'получает наличие вагонов для инвалидов' do
     @dsrasp = DSRasp_page.new
-    sleep 3
+    puts "Таблица отобразилась" if expect(@dsrasp.wait_for_table_text_from(10))
     if @dsrasp.table_text_from.text() == 'МОСКВА ОКТ' and @dsrasp.table_text_to.text() == 'С-ПЕТЕР-ГЛ'
       puts "Тест пройден успешно"
     else

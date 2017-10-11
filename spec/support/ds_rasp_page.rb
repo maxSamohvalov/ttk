@@ -11,7 +11,7 @@ class DSRasp_page < SitePrism::Page
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :link_to_shedule, 'a', text: "Расписание поездов"
-  elements :all_table, "td"
+  element :date_on_left, :xpath, "//app-datepicker[contains(., 'Дата')]//input"
 
 end
 

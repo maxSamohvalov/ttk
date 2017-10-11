@@ -21,7 +21,7 @@ module InitUtils
     args = %w(--screen 0 1366x768x24 --incognito --allow-insecure-localhost --ignore-certificate-errors --disable-extensions
               --allow-failed-policy-fetch-for-test --disable-popup-blocking --enable-automation
               --start-maximized --disable-web-security --disable-smooth-scrolling
-              --disable-prompt-on-repost --disable-extensions-file-access-check --disable-default-apps)
+              --disable-prompt-on-repost --disable-extensions-file-access-check --disable-default-apps --lang=ru)
      Capybara.register_driver :chrome do |app|
        Capybara::Selenium::Driver.new(app,
                                       browser: :chrome,

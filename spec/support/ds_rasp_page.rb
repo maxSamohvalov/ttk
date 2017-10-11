@@ -13,6 +13,7 @@ class DSRasp_page < SitePrism::Page
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
   element :link_to_shedule, 'a', text: "Расписание поездов"
+  element :date_on_left, :xpath, "//app-datepicker[contains(., 'Дата')]//input"
   element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
 
 

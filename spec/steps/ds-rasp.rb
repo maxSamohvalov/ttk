@@ -22,7 +22,7 @@ include CTI_panel_module
 
   step 'нажимает кнопку Поиск' do
     @dsrasp = DSRasp_page.new
-    @dsrasp.find_inv.click
+    @dsrasp.but_find.click
   end
 
   step 'получаем расписание "Орел - Белгород"' do

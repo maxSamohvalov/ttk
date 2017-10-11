@@ -11,12 +11,16 @@ class DSRasp_page < SitePrism::Page
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
+  element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
   element :link_to_shedule, 'a', text: "Расписание поездов"
   element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
+
+
 
 end
 
 module DSRasp_module
+
 
   def train_to_select(num)
     @dsrasp = @dsrasp = DSRasp_page.new

@@ -64,6 +64,8 @@ module CTI_panel_module
           @page.popup_places.click
         when "ДС – Маршруты"
           @page.popup_way.click
+        when "ДС – Назнач. и отмена поездов"
+          @page.popup_trains_delay.click
       end
     end
   end

@@ -12,9 +12,17 @@ class DSRasp_page < SitePrism::Page
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
+  element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
+  element :table_elem_breansk_orl, 'td', text: "БРЯНСК ОРЛОВСКИЙ"
+  element :table_elem_dolgoprudnaia, 'td', text: "ДОЛГОПРУДНАЯ"
+  element :table_elem_razovii, 'td', text: "Разовый полный"
+  element :table_elem_nomer_poezd, 'th', text: "№ поезда"
   element :link_to_shedule, 'a', text: "Расписание поездов"
   element :date_on_left, :xpath, "//app-datepicker[contains(., 'Дата')]//input"
   element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
+  element :swithc_to_price, "kendo-switch[name = 'price']"
+  element :radio_peresadki, "label[for = 'route_transfer']"
+  element :radio_bazovoe, "label[for = 'schedule_base']"
 
 
 

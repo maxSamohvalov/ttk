@@ -55,6 +55,7 @@ module CTI_panel_module
     @page = CTI_panel.new
     if @page.first_tab_name.text != page_name_input
       @page.cat_selector.click
+      sleep 1
       case page_name_input
         when "ДС – Поезда с вагонами для инв"
           @page.popup_trains_with_inv.click

@@ -6,6 +6,10 @@ include CTI_panel_module
     @dsrasp = DSRasp_page.new
     puts "Таблица с данными отобразилась".green if expect(@dsrasp.wait_for_table_rows)
     puts "В таблице есть результат".green if expect(@dsrasp.table_rows.size > 1)
+    x1 = @dsrasp.table_marsh_ps[1].text
+    puts "#{x1}"
+    x1 = @dsrasp.table_marsh_ps[2].text
+    puts "#{x1}"
     puts "Дождались" if expect(@dsrasp.wait_for_table_elem_lobnea(30))
     puts "Отобразилась станция отправления #{@dsrasp.table_elem_lobnea.text}".green if expect(@dsrasp).to have_table_elem_lobnea
     puts "Отобразилась станция назначения #{@dsrasp.table_elem_dolgoprudnaia.text}".green if expect(@dsrasp).to have_table_elem_dolgoprudnaia

@@ -23,6 +23,7 @@ class DSRasp_page < SitePrism::Page
   element :swithc_to_price, "kendo-switch[name = 'price']"
   element :radio_peresadki, "label[for = 'route_transfer']"
   element :radio_bazovoe, "label[for = 'schedule_base']"
+  elements :table_marsh_ps, :xpath, "//div[@id = 'train-table-ps-table']//tbody//tr"
 
 
 

@@ -1,5 +1,5 @@
-language: ru
-encoding: utf-8
+# language: ru
+# encoding: utf-8
 @chrome @cat_load
 Функция: Получение справки ПС - Стоимость проезда
 

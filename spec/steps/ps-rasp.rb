@@ -25,7 +25,7 @@ include CTI_panel_module
 
   step 'нажимает сортировку по номенру поезда' do
     @dsrasp = DSRasp_page.new
-    puts "Щелкаем по #{ @dsrasp.table_elem_nomer_poezd.text}" if expect(@dsrasp).to have_table_elem_nomer_poezd
+    puts "Щелкаем по #{ @dsrasp.table_elem_nomer_poezd.text}".green if expect(@dsrasp).to have_table_elem_nomer_poezd
     @dsrasp.table_elem_nomer_poezd.click
     puts "Сортировка по номеру поезда".green
   end

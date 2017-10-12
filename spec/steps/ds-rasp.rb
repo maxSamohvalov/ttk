@@ -23,6 +23,7 @@ include CTI_panel_module
   step 'нажимает кнопку Поиск' do
     @dsrasp = DSRasp_page.new
     @dsrasp.but_find.click
+    puts "Текущая вкладка #{@dsrasp.first_tab_name.text}".green
   end
 
   step 'получаем расписание "Орел - Белгород"' do

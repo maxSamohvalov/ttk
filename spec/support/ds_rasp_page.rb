@@ -1,6 +1,7 @@
 class DSRasp_page < SitePrism::Page
   set_url ""
 
+  element :first_tab_name, "#k-tabstrip-tab-0"
   element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"

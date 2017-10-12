@@ -16,10 +16,6 @@ include CTI_panel_module
     puts "Маршрут проложен".green if expect(@dsrasp).to have_content("ЛОБНЯ")
   end
 
-  step 'получает маршрут' do
-    puts "Получена стоимость проезда".green if expect(@dsrasp).to have_content("ЯХРОМА") or expect(@dsrasp).to have_content("ТУРИСТ")
-  end
-
 end
 
 RSpec.configure { |c| c.include PSMarshruti }

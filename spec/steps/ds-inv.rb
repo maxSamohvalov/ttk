@@ -2,10 +2,11 @@ module DSInv
 include CTI_panel_module
 include DSRasp_module
 
-  step 'вводит номер поезда' do
-    @dsrasp = DSRasp_page.new
-    @dsrasp.train_num.set('002А')
+
+  step 'вводит номер поезда :num' do |num|
+    train_to_select(num)
   end
+
 
   step 'получает наличие вагонов для инвалидов' do
     @dsrasp = DSRasp_page.new

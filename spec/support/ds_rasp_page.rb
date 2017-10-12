@@ -57,13 +57,13 @@ module DSRasp_module
     @dsrasp.date_on_left.click
     t = Time.now
     2.times {@dsrasp.date_on_left.send_keys :left}
-    t1 = t + (add_days*24*60*60) #прибавляем <перувая цифра> дней к текущей дате
+    t1 = t + (add_days*24*60*60) #прибавляем <первая цифра> дней к текущей дате
     @dsrasp.date_on_left.send_keys t1.strftime("%d")
     @dsrasp.date_on_left.send_keys t1.strftime("%m")
     @dsrasp.date_on_left.send_keys t1.strftime("%Y")
   end
 
-  def date_verifier(time_to_verify = "now") #передавать патаметр в виде "mm/dd/yyyy", переделать как удасться настроить хром
+  def date_verifier(time_to_verify = "now") #передавать патаметр в виде "mm/dd/yyyy", переделать как только удасться настроить хром
     if time_to_verify == "now"
       t = Time.now
       table_date_format = t.strftime("%m/%d/%Y")

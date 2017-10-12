@@ -6,7 +6,6 @@ class DSRasp_page < SitePrism::Page
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
   element :but_find, 'button.k-button.k-primary', text: "Поиск"
   element :train_num, "input[name='trainNumber']"
-#  element :find_inv, :xpath, "//*[@id='search-bar-form']/form/button"
   element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
@@ -14,7 +13,14 @@ class DSRasp_page < SitePrism::Page
   element :link_to_shedule, 'a', text: "Расписание поездов"
   element :date_on_left, :xpath, "//app-datepicker[contains(., 'Дата')]//input"
   element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
-
+  elements :table_vagons, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr"
+  element :table_vagon_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Купе')]"
+  element :table_vagon_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Люкс')]"
+  element :table_vagon_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Плацкартный')]"
+  elements :table_places, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr"
+  element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
+  element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
+  element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
 
 end
 
@@ -46,7 +52,18 @@ module DSRasp_module
     @dsrasp.stantion_to.send_keys :enter
   end
 
-  def date_verifier(time_to_verify = "now")
+  def date_iput(add_days = 0)
+    @dsrasp = DSRasp_page.new
+    @dsrasp.date_on_left.click
+    t = Time.now
+    2.times {@dsrasp.date_on_left.send_keys :left}
+    t1 = t + (add_days*24*60*60) #прибавляем <перувая цифра> дней к текущей дате
+    @dsrasp.date_on_left.send_keys t1.strftime("%d")
+    @dsrasp.date_on_left.send_keys t1.strftime("%m")
+    @dsrasp.date_on_left.send_keys t1.strftime("%Y")
+  end
+
+  def date_verifier(time_to_verify = "now") #передавать патаметр в виде "mm/dd/yyyy", переделать как удасться настроить хром
     if time_to_verify == "now"
       t = Time.now
       table_date_format = t.strftime("%m/%d/%Y")

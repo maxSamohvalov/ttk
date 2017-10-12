@@ -70,6 +70,8 @@ module CTI_panel_module
           @page.popup_shedule_p.click
         when "ПС – Стоимость проезда"
           @page.popup_route_price_p.click
+        when "ПС – Маршруты следования"
+          @page.popup_way_p.click
       end
     end
   end

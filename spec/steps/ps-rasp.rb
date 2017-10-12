@@ -14,7 +14,7 @@ include CTI_panel_module
     puts "Дождались" if expect(@dsrasp.wait_for_table_elem_lobnea(30))
     puts "Отобразилась станция отправления #{@dsrasp.table_elem_lobnea.text}".green if expect(@dsrasp).to have_table_elem_lobnea
     puts "Отобразилась станция назначения #{@dsrasp.table_elem_dolgoprudnaia.text}".green if expect(@dsrasp).to have_table_elem_dolgoprudnaia
-    #date_verifier
+    date_verifier
   end
 
   step 'включает опцию стоимости' do

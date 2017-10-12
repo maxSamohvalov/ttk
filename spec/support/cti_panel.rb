@@ -67,6 +67,12 @@ module CTI_panel_module
           @page.popup_way.click
         when "ДС – Назнач. и отмена поездов"
           @page.popup_trains_delay.click
+        when "ПС – Расписание"
+          @page.popup_shedule_p.click
+        when "ПС – Стоимость проезда"
+          @page.popup_route_price_p.click
+        when "ПС – Маршруты следования"
+          @page.popup_way_p.click
       end
     end
   end

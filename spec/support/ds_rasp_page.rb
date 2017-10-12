@@ -31,6 +31,7 @@ class DSRasp_page < SitePrism::Page
   element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
   element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
+  element :only_available_places, "label", text: "Только при наличии мест" 
 
 
 end

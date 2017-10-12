@@ -1,6 +1,16 @@
 module DSmesta
 include DSRasp_module
 
+  step 'проверяем отсутствие переключателя "Только при наличии мест"' do
+    @dsrasp = DSRasp_page.new
+    expect(@dsrasp).not_to have_only_available_places
+  end
+
+  step 'проверяем наличие переключателя "Только при наличии мест"' do
+    @dsrasp = DSRasp_page.new
+    expect(@dsrasp).to have_only_available_places
+  end
+
   step "вводит дату отправления на неделю вперед" do
     date_iput 7
   end

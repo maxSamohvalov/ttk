@@ -7,7 +7,7 @@ class CTI_panel < SitePrism::Page
 #элементы справочника
   element :popup_shedule, :xpath, "//kendo-popup//li[text() = 'ДС – Расписание']"
   element :popup_places, :xpath, "//kendo-popup//li[text() = 'ДС – Наличие мест']"
-  element :popup_route_price, :xpath, "//kendo-popup//li[text() = 'ДС – Стоимость проезда']"
+  element :popup_prices, :xpath, "//kendo-popup//li[text() = 'ДС – Стоимость проезда']"
   element :popup_trains, :xpath, "//kendo-popup//li[text() = 'ДС – Перечень поездов']"
   element :popup_trains_with_inv, :xpath, "//kendo-popup//li[text() = 'ДС – Поезда с вагонами для инв']"
   element :popup_vip, :xpath, "//kendo-popup//li[text() = 'ДС – Поезда с VIP вагонами']"
@@ -63,6 +63,8 @@ module CTI_panel_module
           @page.popup_shedule.click
         when "ДС – Наличие мест"
           @page.popup_places.click
+        when "ДС – Стоимость проезда"
+          @page.popup_prices.click
         when "ДС – Маршруты"
           @page.popup_way.click
         when "ДС – Назнач. и отмена поездов"

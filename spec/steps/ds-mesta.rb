@@ -12,7 +12,7 @@ include DSRasp_module
     puts "Нашлись поезда #{@dsrasp.table_elem_moscow_belgorod.text}".green if expect(@dsrasp).to have_table_elem_moscow_belgorod
     t = Time.now
     t1 = (t + (7*24*60*60)).strftime("%m/%d/%Y")
-#    date_verifier t1
+    date_verifier t1
   end
 
   step 'нажимаем на поезд в расписании' do

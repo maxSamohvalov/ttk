@@ -15,14 +15,12 @@ include DSRasp_module
   step 'выбирает Количество мест' do
     @dsrasp = DSRasp_page.new
     @dsrasp.table_bag_places.send_keys '1'
-    puts "Выбрано 1 место".green
 
   end
 
   step 'выбирает Вес' do
     @dsrasp = DSRasp_page.new
     @dsrasp.table_bag_ves.send_keys '100'
-    puts "Выбран вес 100 кг".green
 
   end
 
@@ -30,14 +28,13 @@ include DSRasp_module
     @dsrasp = DSRasp_page.new
     @dsrasp.tipeof_bag_selector.click
     @dsrasp.popup_vid_rascheta.click
-    puts "Выбран вид расчета Наличные".green
+    puts "Выбран вид расчета Наличные".green if @dsrasp.tipeof_bag_selector.text == "Наличные"
   end
 
   step 'получает расчет по стоимости багажа' do
     @dsrasp = DSRasp_page.new
-    sleep 3
-    #puts @dsrasp.bag_price.value
-    puts "Цена указана".green if expect(find("strong").text.length).to eq(18)
+    sleep 4
+    puts "Отобразилась цена".green if expect(find("strong").text[7..-4]).to eq('1 420,00')
 
   end
 

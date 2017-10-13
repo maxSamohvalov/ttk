@@ -38,8 +38,8 @@ class DSRasp_page < SitePrism::Page
   element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Налидчие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
   element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
-  element :table_bag_places, :xpath, "//div[@id = 'search-bar-form']//label//label[contains(., 'Мест')]//input"
-  element :table_bag_ves, :xpath, "//div[@id = 'search-bar-form']//label//label[contains(., 'Вес')]//input"
+  element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
+  element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
 
 
 end

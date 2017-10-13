@@ -24,6 +24,16 @@ include DSRasp_module
   end
 
   step 'выбирает Вид расчета' do
+    @dsrasp = DSRasp_page.new
+    @dsrasp.tipeof_bag_selector.click
+    @dsrasp.popup_vid_rascheta.click
+  end
+
+  step 'получает расчет по стоимости багажа' do
+    @dsrasp = DSRasp_page.new
+    sleep 2
+    #puts @dsrasp.bag_price.value
+    puts "Цена указана".green if expect(find("strong").text.length).to eq(18)
 
   end
 

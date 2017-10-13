@@ -12,7 +12,7 @@ class CTI_panel < SitePrism::Page
   element :popup_trains_with_inv, :xpath, "//kendo-popup//li[text() = 'ДС – Поезда с вагонами для инв']"
   element :popup_vip, :xpath, "//kendo-popup//li[text() = 'ДС – Поезда с VIP вагонами']"
   element :popup_way, :xpath, "//kendo-popup//li[text() = 'ДС – Маршруты']"
-  element :popup_baggage_price, :xpath, "//kendo-popup//li[text() = 'ДС – Стоимость первоз. багажа']"
+  element :popup_baggage_price, :xpath, "//kendo-popup//li[text() = 'ДС – Стоимость перевоз. багажа']"
   element :popup_trains_delay, :xpath, "//kendo-popup//li[text() = 'ДС – Назнач. и отмена поездов']"
   element :popup_fact, :xpath, "//kendo-popup//li[text() = 'ДС – Фактическое движение']"
   element :popup_cars, :xpath, "//kendo-popup//li[text() = 'ДС – Автомобилевозы']"
@@ -73,6 +73,8 @@ module CTI_panel_module
           @page.popup_route_price_p.click
         when "ПС – Маршруты следования"
           @page.popup_way_p.click
+        when "ДС – Стоимость перевоз. багажа"
+          @page.popup_baggage_price.click
       end
     end
   end

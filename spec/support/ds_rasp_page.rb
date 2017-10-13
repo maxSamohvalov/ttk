@@ -1,6 +1,8 @@
 class DSRasp_page < SitePrism::Page
   set_url ""
 
+  element :bag_selector, '.app-kendo-dropdownlist.k-widget.k-dropdown.k-header'
+  element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
   element :first_tab_name, "#k-tabstrip-tab-0"
   element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
@@ -33,7 +35,8 @@ class DSRasp_page < SitePrism::Page
   element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Налидчие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
   element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
-
+  element :table_bag_places, :xpath, "//div[@id = 'search-bar-form']//label//label[contains(., 'Мест')]//input"
+  element :table_bag_ves, :xpath, "//div[@id = 'search-bar-form']//label//label[contains(., 'Вес')]//input"
 
 
 end

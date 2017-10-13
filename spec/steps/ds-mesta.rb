@@ -17,8 +17,8 @@ include DSRasp_module
 
   step 'получаем расписание "Орел - Белгород" на неделю вперед' do
     @dsrasp = DSRasp_page.new
-    puts "Таблица поездов отобразилась".green if expect(@dsrasp.wait_for_table_rows)
-    puts "В таблице поездов больше 4 результатов".green if expect(@dsrasp.table_rows.size > 4)
+    puts "Таблица поездов отобразилась".green if expect(@dsrasp.wait_for_table_trains_in_mesta)
+    puts "В таблице поездов больше 4 результатов".green if expect(@dsrasp.table_trains_in_mesta.size > 4)
     puts "Нашлись поезда #{@dsrasp.table_elem_moscow_belgorod.text}".green if expect(@dsrasp).to have_table_elem_moscow_belgorod
     t = Time.now
     t1 = (t + (7*24*60*60)).strftime("%m/%d/%Y") #Первая цифра 7 (т.е. неделя), тут дату тоже поменять, как удасться настроить хром

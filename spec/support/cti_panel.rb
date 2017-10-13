@@ -56,26 +56,27 @@ module CTI_panel_module
     if @page.first_tab_name.text != page_name_input
       @page.cat_selector.click
       sleep 1
-      case page_name_input
-        when "ДС – Поезда с вагонами для инв"
-          @page.popup_trains_with_inv.click
-        when "ДС – Расписание"
-          @page.popup_shedule.click
-        when "ДС – Наличие мест"
-          @page.popup_places.click
-        when "ДС – Стоимость проезда"
-          @page.popup_prices.click
-        when "ДС – Маршруты"
-          @page.popup_way.click
-        when "ДС – Назнач. и отмена поездов"
-          @page.popup_trains_delay.click
-        when "ПС – Расписание"
-          @page.popup_shedule_p.click
-        when "ПС – Стоимость проезда"
-          @page.popup_route_price_p.click
-        when "ПС – Маршруты следования"
-          @page.popup_way_p.click
-      end
+      find(:xpath, "//kendo-popup//li[text() = '#{page_name_input}']").click
+      # case page_name_input
+      #   when "ДС – Поезда с вагонами для инв"
+      #     @page.popup_trains_with_inv.click
+      #   when "ДС – Расписание"
+      #     @page.popup_shedule.click
+      #   when "ДС – Наличие мест"
+      #     @page.popup_places.click
+      #   when "ДС – Стоимость проезда"
+      #     @page.popup_prices.click
+      #   when "ДС – Маршруты"
+      #     @page.popup_way.click
+      #   when "ДС – Назнач. и отмена поездов"
+      #     @page.popup_trains_delay.click
+      #   when "ПС – Расписание"
+      #     @page.popup_shedule_p.click
+      #   when "ПС – Стоимость проезда"
+      #     @page.popup_route_price_p.click
+      #   when "ПС – Маршруты следования"
+      #     @page.popup_way_p.click
+      # end
     end
   end
 end

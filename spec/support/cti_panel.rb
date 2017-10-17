@@ -75,6 +75,8 @@ module CTI_panel_module
           @page.popup_way_p.click
         when "ДС – Стоимость перевоз. багажа"
           @page.popup_baggage_price.click
+        when "ДС – Фактическое движение"
+          @page.popup_fact.click
       end
     end
   end

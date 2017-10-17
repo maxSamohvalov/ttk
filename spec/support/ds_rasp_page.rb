@@ -9,6 +9,7 @@ class DSRasp_page < SitePrism::Page
   element :first_tab_name, "#k-tabstrip-tab-0"
   element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
+  element :stantion_where, :xpath, "//app-autocomplete-station[contains(., 'Станция назначения')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
   element :but_find, 'button.k-button.k-primary', text: "Поиск"
   element :train_num, "input[name='trainNumber']"
@@ -18,6 +19,9 @@ class DSRasp_page < SitePrism::Page
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
   #element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
+  element :table_fact_dvij, :xpath, "//div[@id='fact-table-table']"
+  element :table_fact_dvij_tr, :xpath, "//div[@id='fact-table-table']//table//tbody//tr[1]"
+  element :table_fact_dvij_tr_samara, :xpath, "//div[@id='fact-table-table']//table//tbody//tr//td[text() = 'МОСКВА КАЗАНСКАЯ-САМАРА']"
   element :table_element_lobnya, :xpath,  "//div[@id='train-table-ps-table']/kendo-grid/kendo-grid-list/div/div[contains(., 'ЛОБНЯ')]"
   element :table_elem_breansk_orl, 'td', text: "БРЯНСК ОРЛОВСКИЙ"
   element :table_elem_dolgoprudnaia, 'td', text: "ДОЛГОПРУДНАЯ"
@@ -40,6 +44,9 @@ class DSRasp_page < SitePrism::Page
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
   element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
   element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
+  element :train_num_radio_button, :xpath, "//label[contains(., 'По номеру поезда')"
+  element :train_station_radio_button, "label[for = 'baggage']"
+  element :train_num_radio_button, "label[for = 'сargo']"
 
 
 end
@@ -71,6 +78,13 @@ module DSRasp_module
     @dsrasp.stantion_to.send_keys st_select
     sleep 1
     @dsrasp.stantion_to.send_keys :enter
+  end
+
+  def where_to_select(st_select)
+    @dsrasp = DSRasp_page.new
+    @dsrasp.stantion_where.send_keys st_select
+    sleep 1
+    @dsrasp.stantion_where.send_keys :enter
   end
 
   def date_iput(add_days = 0)

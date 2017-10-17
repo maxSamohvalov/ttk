@@ -18,7 +18,7 @@ class DSRasp_page < SitePrism::Page
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
-  #element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
+  # element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
   element :table_fact_dvij, :xpath, "//div[@id='fact-table-table']"
   element :table_fact_dvij_tr, :xpath, "//div[@id='fact-table-table']//table//tbody//tr[1]"
   element :table_fact_dvij_tr_samara, :xpath, "//div[@id='fact-table-table']//table//tbody//tr//td[text() = 'МОСКВА КАЗАНСКАЯ-САМАРА']"

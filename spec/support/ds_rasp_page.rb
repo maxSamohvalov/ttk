@@ -1,6 +1,12 @@
 class DSRasp_page < SitePrism::Page
   set_url ""
 
+  element :bag_selector, '.app-kendo-dropdownlist.k-widget.k-dropdown.k-header'
+  element :tipeof_bag_selector, '.width-percent-100.k-widget.k-dropdown.k-header'
+  element :bag_price, "strong"
+  element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
+  element :popup_vid_rascheta, :xpath, "//kendo-popup//li[text() = 'Наличные']"
+  element :first_tab_name, "#k-tabstrip-tab-0"
   element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
@@ -12,7 +18,8 @@ class DSRasp_page < SitePrism::Page
   elements :table_trains, :xpath, "//div[@id = 'train-table-table']//tbody//tr"
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
-  element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
+  #element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
+  element :table_element_lobnya, :xpath,  "//div[@id='train-table-ps-table']/kendo-grid/kendo-grid-list/div/div[contains(., 'ЛОБНЯ')]"
   element :table_elem_breansk_orl, 'td', text: "БРЯНСК ОРЛОВСКИЙ"
   element :table_elem_dolgoprudnaia, 'td', text: "ДОЛГОПРУДНАЯ"
   element :table_elem_razovii, 'td', text: "Разовый полный"
@@ -30,11 +37,12 @@ class DSRasp_page < SitePrism::Page
   element :table_vagon_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Люкс')]"
   element :table_vagon_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Плацкартный')]"
   elements :table_places, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr"
-  element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
+  element :table_places_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Налидчие мест по вагону')]//tbody//tr[contains(., 'Купе')]"
   element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
+  element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
+  element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
   element :only_available_places, "label", text: "Только при наличии мест"
-
 
 end
 

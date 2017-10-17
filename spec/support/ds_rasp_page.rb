@@ -2,7 +2,7 @@ class DSRasp_page < SitePrism::Page
   set_url ""
 
   element :bag_selector, '.app-kendo-dropdownlist.k-widget.k-dropdown.k-header'
-  element :tipeof_bag_selector, '.width-percent-100.k-widget.k-dropdown.k-header'
+  element :tipeof_bag_selector, :xpath, "//label[contains(., 'Вид расчета')]"
   element :bag_price, "strong"
   element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
   element :popup_vid_rascheta, :xpath, "//kendo-popup//li[text() = 'Наличные']"

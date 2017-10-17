@@ -34,7 +34,8 @@ include DSRasp_module
   step 'получает расчет по стоимости багажа' do
     @dsrasp = DSRasp_page.new
     sleep 4
-    puts "Отобразилась цена".green if expect(find("strong").text[7..-4]).to eq('1 420,00')
+    print "Отобразилась цена".green if expect(find("strong").text[7..-2]).to eq('1 420,00 р')
+    puts " " + find("strong").text[7..-2].green
 
   end
 

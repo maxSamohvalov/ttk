@@ -15,6 +15,7 @@ class DSRasp_page < SitePrism::Page
   element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
+  elements :table_trains, :xpath, "//div[@id = 'train-table-table']//tbody//tr"
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
   #element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
@@ -30,6 +31,7 @@ class DSRasp_page < SitePrism::Page
   element :radio_peresadki, "label[for = 'route_transfer']"
   element :radio_bazovoe, "label[for = 'schedule_base']"
   elements :table_marsh_ps, :xpath, "//div[@id = 'train-table-ps-table']//tbody//tr"
+  elements :table_trains_in_mesta, :xpath, "//div[@id = 'train-table-ext-table']//tbody//tr"
   elements :table_vagons, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr"
   element :table_vagon_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Купе')]"
   element :table_vagon_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Люкс')]"
@@ -40,7 +42,7 @@ class DSRasp_page < SitePrism::Page
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
   element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
   element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
-
+  element :only_available_places, "label", text: "Только при наличии мест"
 
 end
 

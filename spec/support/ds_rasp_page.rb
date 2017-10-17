@@ -87,6 +87,7 @@ module DSRasp_module
     @dsrasp.stantion_where.send_keys :enter
   end
 
+
   def date_iput(add_days = 0)
     @dsrasp = DSRasp_page.new
     @dsrasp.date_on_left.click

@@ -16,11 +16,11 @@ include CTI_panel_module
     stantion_from_select(st_sel)
   end
 
-  step 'вводит станцию прибытия :st_sel' do |st_sel|
+  step 'вводит станцию назначения :st_sel' do |st_sel|
     stantion_to_select(st_sel)
   end
 
-  step 'вводит станцию назначения :st_sel' do |st_sel|
+  step 'вводит станцию прибытия :st_sel' do |st_sel|
     where_to_select(st_sel)
   end
 

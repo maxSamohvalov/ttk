@@ -23,7 +23,7 @@ include DSRasp_module
     if @dsrasp.wait_for_table_fact_dvij_tr_samara(40)
       puts "Получен результат".green
     else
-      puts "Превышен таймаут"
+      puts "Превышен таймаут".red
     end
   end
 

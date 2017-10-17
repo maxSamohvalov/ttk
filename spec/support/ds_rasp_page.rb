@@ -7,7 +7,8 @@ class DSRasp_page < SitePrism::Page
   element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
   element :popup_vid_rascheta, :xpath, "//kendo-popup//li[text() = 'Наличные']"
   element :first_tab_name, "#k-tabstrip-tab-0"
-  element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
+  element :stantion_ot, :xpath, "//app-autocomplete-station[contains(., 'Откуда')]//input"
+  element :stantion_do, :xpath, "//app-autocomplete-station[contains(., 'Куда')]//input"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
   element :but_find, 'button.k-button.k-primary', text: "Поиск"
@@ -43,6 +44,14 @@ class DSRasp_page < SitePrism::Page
   element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
   element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
   element :only_available_places, "label", text: "Только при наличии мест"
+  element :drop_rout_type, "kendo-dropdownlist[name = 'routeType']"
+  element :ps_type, "li[role = 'option']", text: "Пригородное следование"
+  element :table_transfer, "div#ransfer-search-result"
+  elements :table_transfer_rows, :xpath, "//div[@id = 'transfer-search-result']//tbody//tr"
+  element :transfer_time_info, 'div#transfer-info'
+  element :transfer_first_train, 'div#transfer-first-train'
+  element :transfer_second_train, 'div#transfer-second-train'
+  element :straight_rout, "label[for = 'route_stright']"
 
 end
 
@@ -57,6 +66,13 @@ module DSRasp_module
   def from_select(st_select)
     @dsrasp = DSRasp_page.new
       @dsrasp.stantion_ot.send_keys st_select
+      sleep 1
+      @dsrasp.stantion_ot.send_keys :enter
+  end
+
+  def to_select(st_select)
+    @dsrasp = DSRasp_page.new
+      @dsrasp.stantion_do.send_keys st_select
       sleep 1
       @dsrasp.stantion_ot.send_keys :enter
   end

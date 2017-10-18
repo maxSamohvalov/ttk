@@ -7,7 +7,8 @@ class DSRasp_page < SitePrism::Page
   element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
   element :popup_vid_rascheta, :xpath, "//kendo-popup//li[text() = 'Наличные']"
   element :first_tab_name, "#k-tabstrip-tab-0"
-  element :stantion_ot, :xpath, "//input[@placeholder='Выберите станцию']"
+  element :stantion_ot, :xpath, "//app-autocomplete-station[contains(., 'Откуда')]//input"
+  element :stantion_do, :xpath, "//app-autocomplete-station[contains(., 'Куда')]//input"
   element :stantion_from, :xpath, "//app-autocomplete-station[contains(., 'Станция отправления')]//input"
   element :stantion_where, :xpath, "//app-autocomplete-station[contains(., 'Станция назначения')]//input"
   element :stantion_to, :xpath, "//app-autocomplete-station[contains(., 'Станция прибытия')]//input"
@@ -16,6 +17,7 @@ class DSRasp_page < SitePrism::Page
   element :table_inv_elem_moscow, 'td', text: "МОСКВА ОКТ"
   element :table_inv_elem_sp, 'td', text: "С-ПЕТЕР-ГЛ"
   elements :table_rows, 'tr[data-kendo-grid-item-index]'
+  elements :table_trains, :xpath, "//div[@id = 'train-table-table']//tbody//tr"
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
   # element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
@@ -34,6 +36,7 @@ class DSRasp_page < SitePrism::Page
   element :radio_peresadki, "label[for = 'route_transfer']"
   element :radio_bazovoe, "label[for = 'schedule_base']"
   elements :table_marsh_ps, :xpath, "//div[@id = 'train-table-ps-table']//tbody//tr"
+  elements :table_trains_in_mesta, :xpath, "//div[@id = 'train-table-ext-table']//tbody//tr"
   elements :table_vagons, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr"
   element :table_vagon_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Купе')]"
   element :table_vagon_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Люкс')]"
@@ -47,7 +50,15 @@ class DSRasp_page < SitePrism::Page
   element :train_num_radio_button, :xpath, "//label[contains(., 'По номеру поезда')"
   element :train_station_radio_button, "label[for = 'baggage']"
   element :train_num_radio_button, "label[for = 'сargo']"
-
+  element :only_available_places, "label", text: "Только при наличии мест"
+  element :drop_rout_type, "kendo-dropdownlist[name = 'routeType']"
+  element :ps_type, "li[role = 'option']", text: "Пригородное следование"
+  element :table_transfer, "div#ransfer-search-result"
+  elements :table_transfer_rows, :xpath, "//div[@id = 'transfer-search-result']//tbody//tr"
+  element :transfer_time_info, 'div#transfer-info'
+  element :transfer_first_train, 'div#transfer-first-train'
+  element :transfer_second_train, 'div#transfer-second-train'
+  element :straight_rout, "label[for = 'route_stright']"
 
 end
 
@@ -62,6 +73,13 @@ module DSRasp_module
   def from_select(st_select)
     @dsrasp = DSRasp_page.new
       @dsrasp.stantion_ot.send_keys st_select
+      sleep 1
+      @dsrasp.stantion_ot.send_keys :enter
+  end
+
+  def to_select(st_select)
+    @dsrasp = DSRasp_page.new
+      @dsrasp.stantion_do.send_keys st_select
       sleep 1
       @dsrasp.stantion_ot.send_keys :enter
   end

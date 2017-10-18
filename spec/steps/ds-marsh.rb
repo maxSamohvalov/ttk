@@ -3,6 +3,7 @@ include CTI_panel_module
 include DSRasp_module
 
   step 'вводим откуда :from' do |from|
+    $from_st = from
     from_select(from)
   end
 

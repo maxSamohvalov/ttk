@@ -20,6 +20,10 @@ include CTI_panel_module
     stantion_to_select(st_sel)
   end
 
+  step 'вводит станцию прибытия :st_sel' do |st_sel|
+    where_to_select(st_sel)
+  end
+
   step 'нажимает кнопку Поиск' do
     @dsrasp = DSRasp_page.new
     @dsrasp.but_find.click
@@ -33,6 +37,7 @@ include CTI_panel_module
     puts "Нашлись поезда #{@dsrasp.table_elem_moscow_belgorod.text}".green if expect(@dsrasp).to have_table_elem_moscow_belgorod
     date_verifier
   end
+
 
 end
 

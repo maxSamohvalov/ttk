@@ -1,16 +1,16 @@
 GIT
-  remote: git://github.com/ArtemMikhalev89/gnawrnip.git
-  revision: 6958b818943eaecca1cb187d1206ad0ffe60785f
+  remote: git://github.com/ArtemMikhalev89/turnip_formatter.git
+  revision: b5d5c063d43962ef9972eb598bd39a08d646b3b9
   specs:
-    gnawrnip (0.5.0)
-      capybara (~> 2.2)
-      oily_png
-      turnip_formatter (~> 0.6.0.pre.beta.5)
+    turnip_formatter (0.6.1)
+      activesupport (~> 4.2.7)
+      rspec (>= 3.3, < 4.0)
+      turnip (~> 3.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    acceptance_testing (0.2.1)
+    acceptance_testing (0.2.2)
       capybara (~> 2.13)
       chromedriver-helper (~> 1.1.0)
       pry-byebug (~> 3.4.0)
@@ -19,7 +19,7 @@ GEM
       rspec (~> 3.4)
       selenium-webdriver (~> 3.3)
       site_prism (~> 2.9)
-      turnip (~> 3.0.0.pre.beta.5)
+      turnip (~> 3.0.0)
     activesupport (4.2.10)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -51,6 +51,10 @@ GEM
     ffaker (2.2.0)
     ffi (1.9.18)
     gherkin (4.1.3)
+    gnawrnip (0.6.0)
+      capybara (~> 2.2)
+      oily_png
+      turnip_formatter (~> 0.6.0)
     i18n (0.8.6)
     io-like (0.3.0)
     method_source (0.9.0)
@@ -64,7 +68,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     oily_png (1.2.1)
       chunky_png (~> 1.3.7)
-    pry (0.11.1)
+    pry (0.11.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-byebug (3.4.3)
@@ -76,19 +80,19 @@ GEM
       rack (>= 1.0, < 3)
     rake (12.0.0)
     require_all (1.4.0)
-    rspec (3.6.0)
-      rspec-core (~> 3.6.0)
-      rspec-expectations (~> 3.6.0)
-      rspec-mocks (~> 3.6.0)
-    rspec-core (3.6.0)
-      rspec-support (~> 3.6.0)
-    rspec-expectations (3.6.0)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-mocks (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-support (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
     rubyzip (1.2.1)
     selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
@@ -100,10 +104,6 @@ GEM
     turnip (3.0.0)
       gherkin (~> 4.0)
       rspec (>= 3.0, < 4.0)
-    turnip_formatter (0.6.1)
-      activesupport (~> 4.2.7)
-      rspec (>= 3.3, < 4.0)
-      turnip (~> 3.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     xpath (2.1.0)
@@ -113,13 +113,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acceptance_testing (~> 0.2.1)
+  acceptance_testing (~> 0.2.2)
   colorize
   faker (~> 1.6.3)
   ffaker (~> 2.2.0)
-  gnawrnip!
+  gnawrnip (~> 0.6.0)
   net-sftp (~> 2.1, >= 2.1.2)
-  turnip_formatter (~> 0.6.0.pre.beta.5)
+  turnip_formatter!
 
 BUNDLED WITH
    1.16.0.pre.3

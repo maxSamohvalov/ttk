@@ -39,6 +39,19 @@ include CTI_panel_module
     date_verifier
   end
 
+  step 'выбирает "По Станции"' do
+    @dsrasp = DSRasp_page.new
+    @dsrasp.switch_by_station.click
+    puts "Переключатель По Станции в позиции Да".green if expect(@dsrasp.switch_by_station).to have_content("ДА")
+  end
+
+  step 'получаем расписание "Отправление по станции"' do
+    @dsrasp = DSRasp_page.new
+    puts "Отобразились Поезда:Отправление".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Отправление")
+    puts "Отобразились Поезда:Прибытие".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Прибытие")
+    puts "Отобразились Поезда:Транзит".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Транзит")
+  end
+
 
 end
 

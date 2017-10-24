@@ -18,7 +18,7 @@ module InitUtils
   end
 
   def register_selenium_chrome
-    args = %w(--screen 0 1366x768x24 --incognito --allow-insecure-localhost --ignore-certificate-errors --disable-extensions
+    args = %w(--window-size=1920,1080 --incognito --allow-insecure-localhost --ignore-certificate-errors --disable-extensions
               --allow-failed-policy-fetch-for-test --disable-popup-blocking --enable-automation
               --start-maximized --disable-web-security --disable-smooth-scrolling
               --disable-prompt-on-repost --disable-extensions-file-access-check --disable-default-apps)

@@ -21,6 +21,7 @@ include CTI_panel_module
   end
 
   step 'вводит станцию прибытия :st_sel' do |st_sel|
+    save_screenshot
     where_to_select(st_sel)
   end
 

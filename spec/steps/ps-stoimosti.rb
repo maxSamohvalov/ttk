@@ -20,6 +20,7 @@ include CTI_panel_module
 
   step 'получает расписание "Калуга - Брянск"' do
     @dsrasp = DSRasp_page.new
+    save_screenshot
     puts "Таблица с данными отобразилась".green if expect(@dsrasp.wait_for_table_rows)
     puts "В таблице есть результат".green if expect(@dsrasp.table_rows.size > 1)
     puts "Варианты нашлись".green if expect(@dsrasp).to have_content("Вариант:")

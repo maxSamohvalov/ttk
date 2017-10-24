@@ -13,6 +13,7 @@ before_script:
   - gem -v
   #- if  [ `gem query -i -n bundler` == false ] ; then gem install bundler; fi
   - gem install bundler --no-ri --no-rdoc
+  - gem install bundler --pre
   - bundle install --quiet
   # - bundle update
   #- QMAKE=/usr/lib64/qt5/bin/qmake gem install capybara-webkit

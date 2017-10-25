@@ -34,6 +34,7 @@ class DSRasp_page < SitePrism::Page
   element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
   element :switch_to_price, "kendo-switch[name = 'price']"
   element :switch_by_station, "kendo-switch[name = 'checkedByStation']"
+  element :switch_by_etalon, "kendo-switch[name = 'checkedByFirmed']"
   element :radio_peresadki, "label[for = 'route_transfer']"
   element :radio_bazovoe, "label[for = 'schedule_base']"
   elements :table_marsh_ps, :xpath, "//div[@id = 'train-table-ps-table']//tbody//tr"

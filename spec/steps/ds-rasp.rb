@@ -45,11 +45,23 @@ include CTI_panel_module
     puts "Переключатель По Станции в позиции Да".green if expect(@dsrasp.switch_by_station).to have_content("ДА")
   end
 
+  step 'выбирает "Эталон"' do
+    @dsrasp = DSRasp_page.new
+    @dsrasp.switch_by_etalon.click
+    puts "Переключатель Эталон в позиции Да".green if expect(@dsrasp.switch_by_etalon).to have_content("ДА")
+  end
+
   step 'получаем расписание "Отправление по станции"' do
     @dsrasp = DSRasp_page.new
     puts "Отобразились Поезда:Отправление".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Отправление")
     puts "Отобразились Поезда:Прибытие".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Прибытие")
     puts "Отобразились Поезда:Транзит".green if expect(@dsrasp.table_rasp).to have_content("Поезда: Транзит")
+  end
+
+  step 'получаем расписание "Эталонное расписание"' do
+    @dsrasp = DSRasp_page.new
+    puts "Таблица с данными отобразилась".green if expect(@dsrasp.wait_for_table_trains)
+    puts "Отобразились эталонные результаты".green if expect(@dsrasp.table_rasp).to have_content("НЕТ В ХОДУ")
   end
 
 

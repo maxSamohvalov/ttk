@@ -124,8 +124,6 @@ module DSRasp_module
       table_date_format = t.strftime("%m/%d/%Y")
       puts "Поезда показаны в текущую дату".green if find(:xpath, "//td[contains(., '#{table_date_format}')]")
     else
-      a = find(:xpath, "//td[contains(., '2017')]").text
-      puts "что показано в ячейке где есть 2017 - #{a} "
       puts "Поезда показаны на '#{time_to_verify}'".green if find(:xpath, "//td[contains(., '#{time_to_verify}')]")
     end
   end

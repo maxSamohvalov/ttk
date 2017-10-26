@@ -21,7 +21,7 @@ include DSRasp_module
     puts "В таблице поездов больше 4 результатов".green if expect(@dsrasp.table_trains_in_mesta.size > 4)
     puts "Нашлись поезда #{@dsrasp.table_elem_moscow_belgorod.text}".green if expect(@dsrasp).to have_table_elem_moscow_belgorod
     t = Time.now
-    t1 = (t + (7*24*60*60)).strftime("%m/%d/%Y") #Первая цифра 7 (т.е. неделя), тут дату тоже поменять, как удасться настроить хром
+    t1 = (t + (7*24*60*60)).strftime("%m/%-d/%Y") #Первая цифра 7 (т.е. неделя), тут дату тоже поменять, как удасться настроить хром
     date_verifier t1
   end
 

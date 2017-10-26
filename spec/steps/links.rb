@@ -8,17 +8,6 @@ include CTI_panel_module
     puts "Осуществлен переход по ссылке По наличию мест".green if expect(@dsrasp.table_vagons_text)
   end
 
-  step 'сохранятся Станция отправления  и Номер поезда' do
-    @dsrasp = DSRasp_page.new
-    puts "Станция отправления сохранилась в поле".green if expect(@dsrasp.kendo_otpravleni)
-    puts @dsrasp.train_num.value
-    if @dsrasp.train_num.value == $num_train
-      puts "Номер поезда сохранен".green
-    else
-      puts "Номер поезда не сохранен".red
-    end
-  end
-
   step 'сохранятся Номер поезда' do
     @dsrasp = DSRasp_page.new
     if @dsrasp.train_num.value == $num_train
@@ -26,6 +15,7 @@ include CTI_panel_module
     else
       puts "Номер поезда не сохранен".red
     end
+    expect(@dsrasp.train_num.value == $num_train)
   end
 
   step 'сохранятся Станция отправления  и Станция прибытия' do

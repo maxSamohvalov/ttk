@@ -28,5 +28,4 @@ include DSRasp_module
   end
 
 end
-
 RSpec.configure { |c| c.include DSFact }

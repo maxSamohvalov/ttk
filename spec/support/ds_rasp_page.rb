@@ -109,12 +109,13 @@ module DSRasp_module
   def date_iput(add_days = 0)
     @dsrasp = DSRasp_page.new
     @dsrasp.date_on_left.click
-    t = Time.now
     2.times {@dsrasp.date_on_left.send_keys :left}
-    t1 = t + (add_days*24*60*60) #прибавляем <первая цифра> дней к текущей дате
-    @dsrasp.date_on_left.send_keys t1.strftime("%d")
-    @dsrasp.date_on_left.send_keys t1.strftime("%m")
-    @dsrasp.date_on_left.send_keys t1.strftime("%Y")
+    add_days.times {@dsrasp.date_on_left.send_keys :up}
+    # t = Time.now
+    # t1 = t + (add_days*24*60*60) #прибавляем <первая цифра> дней к текущей дате
+    # @dsrasp.date_on_left.send_keys t1.strftime("%d")
+    # @dsrasp.date_on_left.send_keys t1.strftime("%m")
+    # @dsrasp.date_on_left.send_keys t1.strftime("%Y")
   end
 
   def date_verifier(time_to_verify = "now") #передавать патаметр в виде "mm/dd/yyyy", переделать как только удасться настроить хром

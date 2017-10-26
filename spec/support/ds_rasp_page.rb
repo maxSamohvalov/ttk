@@ -31,7 +31,7 @@ class DSRasp_page < SitePrism::Page
   element :table_elem_nomer_poezd, 'th', text: "№ поезда"
   element :link_to_shedule, 'a', text: "Расписание поездов"
   element :date_on_left, :xpath, "//app-datepicker[contains(., 'Дата')]//input"
-  element :marshrut_table, 'a', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
+  element :marshrut_table, 'p', text: "ОСНОВНОЙ МАРШРУТ: МОСКВА - С-ПЕТЕР-ГЛ"
   element :switch_to_price, "kendo-switch[name = 'price']"
   element :switch_by_station, "kendo-switch[name = 'checkedByStation']"
   element :switch_by_etalon, "kendo-switch[name = 'checkedByFirmed']"
@@ -39,6 +39,7 @@ class DSRasp_page < SitePrism::Page
   element :radio_bazovoe, "label[for = 'schedule_base']"
   elements :table_marsh_ps, :xpath, "//div[@id = 'train-table-ps-table']//tbody//tr"
   elements :table_trains_in_mesta, :xpath, "//div[@id = 'train-table-ext-table']//tbody//tr"
+  elements :table_vagons_text, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]"
   elements :table_vagons, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr"
   element :table_vagon_kupe, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Купе')]"
   element :table_vagon_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест на выбранный поезд')]//tbody//tr[contains(., 'Люкс')]"
@@ -48,6 +49,7 @@ class DSRasp_page < SitePrism::Page
   element :table_places_lux, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'СВ')]"
   element :table_places_platz, :xpath, "//div[@id = 'places-table-table'][contains(., 'Наличие мест по вагону')]//tbody//tr[contains(., 'Плацкартный')]"
   element :table_rasp, "div[id = 'train-table-table']"
+  element :table_nalichie_mest, "div[id = 'places-table-table']"
   element :table_bag_places, :xpath, "//label[contains(., 'Мест')]//input"
   element :table_bag_ves, :xpath, "//label//label[contains(., 'Вес')]//input"
   element :train_num_radio_button, :xpath, "//label[contains(., 'По номеру поезда')"
@@ -62,6 +64,9 @@ class DSRasp_page < SitePrism::Page
   element :transfer_first_train, 'div#transfer-first-train'
   element :transfer_second_train, 'div#transfer-second-train'
   element :straight_rout, "label[for = 'route_stright']"
+  element :kendo_otpravleni, "kendo-autocomplete[title = 'МОСКВА | МСК | 2000000'] "
+  element :kendo_pribitie, "kendo-autocomplete[title = 'САНКТ-ПЕТЕРБУРГ | ОКТ | 2004000']"
+
 
 end
 

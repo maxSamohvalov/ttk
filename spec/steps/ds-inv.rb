@@ -23,8 +23,7 @@ include DSRasp_module
 
   step 'осуществлен переход по ссылке' do
     @dsrasp = DSRasp_page.new
-    expect(@dsrasp).to have_xpath("//app-autocomplete-station[contains(., 'Станция отправления')]//input")
-    puts "Осуществлен переход по ссылке".green
+    puts "Осуществлен переход по ссылке".green if expect(@dsrasp).to have_xpath("//app-autocomplete-station[contains(., 'Станция отправления')]//input")
   end
 
 end

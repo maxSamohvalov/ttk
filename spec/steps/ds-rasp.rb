@@ -64,11 +64,5 @@ include CTI_panel_module
     puts "Отобразились эталонные результаты".green if expect(@dsrasp.table_rasp).to have_content("НЕТ В ХОДУ")
   end
 
-  step 'нажимает стрку с поездом "772А"' do
-    @dsrasp = DSRasp_page.new
-    puts "Найден елемент".green if expect(@dsrasp.wait_for_table_elem_moscow_sanctpt)
-    @dsrasp.table_elem_moscow_sanctpt.click
-  end
-
 end
 RSpec.configure { |c| c.include DSRasp }

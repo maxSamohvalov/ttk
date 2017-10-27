@@ -20,6 +20,7 @@ class DSRasp_page < SitePrism::Page
   elements :table_trains, :xpath, "//div[@id = 'train-table-table']//tbody//tr"
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
+  element :table_elem_moscow_sanctpt_train_num, 'td', text: "772А"
   # element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
   element :table_fact_dvij, :xpath, "//div[@id='fact-table-table']"
   element :table_fact_dvij_tr, :xpath, "//div[@id='fact-table-table']//table//tbody//tr[1]"
@@ -66,6 +67,9 @@ class DSRasp_page < SitePrism::Page
   element :straight_rout, "label[for = 'route_stright']"
   element :kendo_otpravleni, "kendo-autocomplete[title = 'МОСКВА | МСК | 2000000'] "
   element :kendo_pribitie, "kendo-autocomplete[title = 'САНКТ-ПЕТЕРБУРГ | ОКТ | 2004000']"
+  element :a_mesta, 'a', text: "По наличию мест"
+  element :a_marshrut, 'a', text: "Маршрут"
+  element :a_schema_poezda, 'a', text: "Схема поезда"
 
 
 end

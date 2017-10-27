@@ -20,7 +20,7 @@ class DSRasp_page < SitePrism::Page
   elements :table_trains, :xpath, "//div[@id = 'train-table-table']//tbody//tr"
   element :table_elem_moscow_belgorod, 'td', text: "МОСКВА КУР — БЕЛГОРОД"
   element :table_elem_moscow_sanctpt, 'td', text: "МОСКВА ОКТ — С-ПЕТЕР-ГЛ"
-  element :table_elem_moscow_sanctpt_train_num, 'td', text: "772А"
+  element :table_elem_moscow_sanctpt_train_num, 'td', text: "776А"
   # element :table_elem_lobnea, 'td', text: "ЛОБНЯ"
   element :table_fact_dvij, :xpath, "//div[@id='fact-table-table']"
   element :table_fact_dvij_tr, :xpath, "//div[@id='fact-table-table']//table//tbody//tr[1]"

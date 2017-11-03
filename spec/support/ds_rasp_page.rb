@@ -133,7 +133,7 @@ module DSRasp_module
   def date_verifier(time_to_verify = "now") #передавать патаметр в виде "mm/dd/yyyy", переделать как только удасться настроить хром
     if time_to_verify == "now"
       t = Time.now
-      table_date_format = t.strftime("%m/%d/%Y")
+      table_date_format = t.strftime("%m/%-d/%Y")
       puts "Поезда показаны в текущую дату".green if find(:xpath, "//td[contains(., '#{table_date_format}')]")
     else
       puts "Поезда показаны на '#{time_to_verify}'".green if find(:xpath, "//td[contains(., '#{time_to_verify}')]")

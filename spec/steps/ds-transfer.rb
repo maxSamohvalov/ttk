@@ -35,7 +35,9 @@ include DSRasp_module
     @page = DSRasp_page.new
     @page.wait_for_table_transfer
     puts "Получили список прямых маршрутов".green if expect(@page.table_transfer_rows[1]).to have_content("— Без пересадок —")
-    date_verifier 7
+    t = Time.now
+    t1 = (t + (7*24*60*60)).strftime("%m/%-d/%Y") #Первая цифра 7 (т.е. неделя), тут дату тоже поменять, как удасться настроить хром
+    date_verifier t1
   end
 
   step 'выбираем Пригородное сообщение' do

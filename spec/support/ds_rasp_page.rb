@@ -5,6 +5,7 @@ class DSRasp_page < SitePrism::Page
   element :tipeof_bag_selector, :xpath, "//label[contains(., 'Вид расчета')]"
   element :bag_price, "strong"
   element :popup_ruch_kladi, :xpath, "//kendo-popup//li[text() = 'Ручная кладь']"
+  element :popup_avto, :xpath, "//kendo-popup//li[text() = 'Автомобилевозы']"
   element :popup_vid_rascheta, :xpath, "//kendo-popup//li[text() = 'Наличные']"
   element :first_tab_name, "#k-tabstrip-tab-0"
   element :stantion_ot, :xpath, "//app-autocomplete-station[contains(., 'Откуда')]//input"

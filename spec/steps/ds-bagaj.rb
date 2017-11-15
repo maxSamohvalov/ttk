@@ -8,7 +8,14 @@ include DSRasp_module
     @dsrasp = DSRasp_page.new
     @dsrasp.bag_selector.click
     @dsrasp.popup_ruch_kladi.click
-    puts "Выбрана ручная кладь".green
+    puts "Выбрано Ручная кладь".green if expect(@dsrasp.bag_selector.text).to eql("Ручная кладь")
+  end
+
+  step 'выбирает Автомобилевозы' do
+    @dsrasp = DSRasp_page.new
+    @dsrasp.bag_selector.click
+    @dsrasp.popup_avto.click
+    puts "Выбрано Автомобилевозы".green if expect(@dsrasp.bag_selector.text).to eql("Автомобилевозы")
 
   end
 
@@ -35,6 +42,14 @@ include DSRasp_module
     @dsrasp = DSRasp_page.new
     sleep 4
     print "Отобразилась цена".green if expect(find("strong").text[7..-2]).to eq('1 420,00 р')
+    puts " " + find("strong").text[7..-2].green
+
+  end
+
+  step 'получает расчет по стоимости автомобилевоза' do
+    @dsrasp = DSRasp_page.new
+    sleep 4
+    print "Отобразилась цена".green if expect(find("strong").text[7..-2]).to eq('8 047,60 р')
     puts " " + find("strong").text[7..-2].green
 
   end

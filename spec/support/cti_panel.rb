@@ -2,7 +2,7 @@ class CTI_panel < SitePrism::Page
   set_url ""
 
   element :first_tab_name, "#k-tabstrip-tab-0"
-  element :cat_selector, '.dropdownlist.k-widget.k-dropdown.k-header'
+  element :cat_selector, :xpath, "//kendo-combobox[@class = 'dropdownlist k-widget k-combobox k-header']//span[@class = 'k-i-arrow-s k-icon']"
 
 #элементы справочника
   element :popup_shedule, :xpath, "//kendo-popup//li[text() = 'ДС – Расписание']"
@@ -53,30 +53,9 @@ end
 module CTI_panel_module
   def page_check(page_name_input)
     @page = CTI_panel.new
-    if @page.first_tab_name.text != page_name_input
+#    if @page.first_tab_name.text != page_name_input
       @page.cat_selector.click
-      sleep 1
       find(:xpath, "//kendo-popup//li[text() = '#{page_name_input}']").click
-      # case page_name_input
-      #   when "ДС – Поезда с вагонами для инв"
-      #     @page.popup_trains_with_inv.click
-      #   when "ДС – Расписание"
-      #     @page.popup_shedule.click
-      #   when "ДС – Наличие мест"
-      #     @page.popup_places.click
-      #   when "ДС – Стоимость проезда"
-      #     @page.popup_prices.click
-      #   when "ДС – Маршруты"
-      #     @page.popup_way.click
-      #   when "ДС – Назнач. и отмена поездов"
-      #     @page.popup_trains_delay.click
-      #   when "ПС – Расписание"
-      #     @page.popup_shedule_p.click
-      #   when "ПС – Стоимость проезда"
-      #     @page.popup_route_price_p.click
-      #   when "ПС – Маршруты следования"
-      #     @page.popup_way_p.click
-      # end
-    end
+#    end
   end
 end

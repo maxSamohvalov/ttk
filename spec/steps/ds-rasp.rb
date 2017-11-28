@@ -5,7 +5,8 @@ include CTI_panel_module
   step "открывается окно портала" do
     @page = CTI_panel.new
     @page.load
-    expect(@page.first_tab_name == "ДС – Расписание")
+#    expect(@page.first_tab_name == "ДС – Расписание")
+    @page.wait_for_cat_selector
   end
 
   step 'мы находимся в справке :curr_page' do |curr_page|
